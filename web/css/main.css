@@ -1,0 +1,77 @@
+ul {
+    list-style: none;
+}
+
+#mainDiv {
+    border: 1px solid gray;
+    margin: 0 auto;
+    width: 950px;
+}
+
+#header {
+    color: white;
+    font-size: 21px;
+    height: 45px;
+    margin: 0 auto;
+    background: #6495ed;
+    line-height: 45px;
+}
+
+#logoDiv {
+    margin-left: 20px;
+}
+
+#userDiv {
+    margin-right: 20px;
+}
+
+.lft {
+    float: left;
+}
+
+.rft {
+    float: right;
+}
+
+#welcomeDiv {
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid gray;
+}
+
+#contentDiv {
+    height: 500px;
+    border-bottom: 1px solid gray;
+}
+
+#content-left {
+    width: 150px;
+    height: 500px;
+}
+
+#content-right {
+    border-left: 1px solid gray;
+    width: 799px;
+    height: 500px;
+    background: #e5e5e5;
+}
+
+.menu {
+    font-weight: bolder;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.sun-menu {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 25px;
+}
+
+#footer {
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
