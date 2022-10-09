@@ -9,6 +9,7 @@
 <html>
 <head>
     <link rel="stylesheet" href=css/styles.css>
+    <script src="js/script.js"  type="text/javascript"></script>
     <title>登录_NJUIT</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
     <div class="title">
         NJUIT管理系统
     </div>
-    <form action="${pageContext.request.contextPath}/LoginServlet" method="post" id="login">
+    <form action="LoginServlet" method="post" id="login">
         <div class="input">
             <label for="name">用户名：</label>
             <input type="text" id="name" name="name">
@@ -27,10 +28,9 @@
         </div>
     </form>
     <div class="btn">
-        <button type="submit" form="login">提交</button>
+        <button type="submit" form="login" onclick="return checkInput()" >提交</button>
         <button type="reset" form="login">清空</button>
     </div>
-
 </div>
 </body>
 </html>

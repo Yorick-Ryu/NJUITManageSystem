@@ -18,10 +18,21 @@ public class LoginServlet extends HttpServlet {
         String pwd = request.getParameter("pwd");
         System.out.println("name:" + name);
         System.out.println("pwd:" + pwd);
+        if (name == null || "".equals(name)) {
+            System.out.println("用户名不为空");
+            return;
+        }
+        if (pwd == null || "".equals(pwd)) {
+            System.out.println("密码不为空");
+            return;
+        }
         if ("admin".equals(name) && "123".equals(pwd)) {
             System.out.println("登录成功");
+            // 重定向
             response.sendRedirect("/index.jsp");
-        }else {
+            // 请求转发
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        } else {
             Writer out = response.getWriter();
             out.write("登录失败");
         }
