@@ -1,5 +1,5 @@
 function checkInput() {
-    console.log("ssssssssssss")
+    console.log("dev")
     const name = document.getElementById("name").value
     const pwd = document.getElementById("pwd").value
     if (name === "" || pwd === "") {
@@ -9,6 +9,3 @@ function checkInput() {
     }
     return true
 }
-
-
-

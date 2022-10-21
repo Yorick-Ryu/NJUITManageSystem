@@ -11,13 +11,22 @@
     <link rel="stylesheet" href=css/styles.css>
     <script src="js/script.js"  type="text/javascript"></script>
     <title>登录_NJUIT</title>
+    <%
+        if("login_error".equals(request.getParameter("message"))){ %>
+    <script type="text/javascript">
+        alert("用户名或者密码错误！");
+    </script>
+
+    <%}else{%>
+    <!-- 没有收到任何错误信息 -->
+    <% }%>
 </head>
 <body>
 <div class="container_form">
     <div class="title">
         NJUIT管理系统
     </div>
-    <form action="LoginServlet" method="post" id="login">
+    <form action="${pageContext.request.contextPath}/servlet.LoginServlet" method="post" id="login">
         <div class="input">
             <label for="name">用户名：</label>
             <input type="text" id="name" name="name">

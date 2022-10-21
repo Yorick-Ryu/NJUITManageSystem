@@ -30,8 +30,8 @@
             <ul>
                 <li class="menu">人事管理
                     <ul>
-                        <li class="sun-menu"><a href="index.jsp" id="deptManage" target="contentPage">部门管理</a></li>
-                        <li class="sun-menu">员工管理</li>
+                        <li class="sun-menu"><a href="https://www.baidu.com" id="deptManage" target="contentPage">部门管理</a></li>
+                        <li class="sun-menu"><a href="https://www.niit.edu.cn/4052/list.htm" id="personManage" target="contentPage">员工管理</a></li>
                     </ul>
                 </li>
                 <li class="menu">
