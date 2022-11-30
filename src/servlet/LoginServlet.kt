@@ -24,8 +24,8 @@ class LoginServlet : HttpServlet() {
         val pwd = request.getParameter("pwd")
         val userService: UserService = UserServiceImpl()
         val user = userService.login(name, pwd)
-        println("登录成功，ID:${user.id} UserName:${user.userName} Password:${user.pwd}")
         if (user.userName != "") {
+            println("登录成功，ID:${user.id} UserName:${user.userName} Password:${user.pwd}")
             response.sendRedirect(request.contextPath + "/index.jsp")
         } else {
             response.sendRedirect(request.contextPath + "/login.jsp?message=login_error")

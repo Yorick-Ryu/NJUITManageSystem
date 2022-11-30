@@ -4,8 +4,9 @@ class User {
     var id: Int = 0
     var userName: String = ""
     var pwd: String = ""
+    var name: String = ""
     override fun toString(): String {
-        return "{id:${id},userName:${userName},pwd:${pwd}}"
+        return "{id:${id},userName:${userName},pwd:${pwd},name:${name}}"
     }
 }
 

@@ -10,10 +10,11 @@ class UserDaoImpl : UserDao, BaseDao() {
         var flag = false
         try {
             val conn = super.getConnection()
-            val sql = "insert into user(userName,pwd)values(?,?)"
+            val sql = "insert into user(userName,pwd,name)values(?,?,?)"
             val count = conn?.prepareStatement(sql)?.run {
                 setString(1, user.userName)
                 setString(2, user.pwd)
+                setString(3, user.name)
                 executeUpdate()
             } ?: 0
             flag = count > 0
@@ -70,6 +71,7 @@ class UserDaoImpl : UserDao, BaseDao() {
                         id = rs.getInt("id")
                         userName = rs.getString("userName")
                         pwd = rs.getString("pwd")
+                        name = rs.getString("name")
                     }
                     userList += user
                 }
@@ -95,6 +97,7 @@ class UserDaoImpl : UserDao, BaseDao() {
                         id = rs.getInt("id")
                         this.userName = rs.getString("userName")
                         this.pwd = rs.getString("pwd")
+                        name = rs.getString("name")
                     }
                 }
             }
