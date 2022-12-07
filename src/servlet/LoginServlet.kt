@@ -20,12 +20,14 @@ class LoginServlet : HttpServlet() {
         request.characterEncoding = "utf-8"
         response.characterEncoding = "utf-8"
         response.contentType = "text/html;charset=utf-8"
+        val session = request.session
         val name = request.getParameter("name")
         val pwd = request.getParameter("pwd")
         val userService: UserService = UserServiceImpl()
         val user = userService.login(name, pwd)
         if (user.userName != "") {
             println("登录成功，ID:${user.id} UserName:${user.userName} Password:${user.pwd}")
+            session.setAttribute("user", user)
             response.sendRedirect(request.contextPath + "/index.jsp")
         } else {
             response.sendRedirect(request.contextPath + "/login.jsp?message=login_error")

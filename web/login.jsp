@@ -5,19 +5,19 @@
   Time: 14:46
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <link rel="stylesheet" href=css/styles.css>
-    <script src="js/script.js"  type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
     <title>登录_NJUIT</title>
     <%
-        if("login_error".equals(request.getParameter("message"))){ %>
+        if ("login_error".equals(request.getParameter("message"))) { %>
     <script type="text/javascript">
         alert("用户名或者密码错误！");
     </script>
 
-    <%}else{%>
+    <%} else {%>
     <!-- 没有收到任何错误信息 -->
     <% }%>
 </head>
@@ -37,7 +37,7 @@
         </div>
     </form>
     <div class="btn">
-        <button type="submit" form="login" onclick="return checkInput()" >提交</button>
+        <button type="submit" form="login" onclick="return checkInput()">提交</button>
         <button type="reset" form="login">清空</button>
     </div>
 </div>

@@ -1,63 +1,80 @@
-<%--
+<%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: yurui
   Date: 2022/9/9
   Time: 17:05
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <link rel="stylesheet" href=css/main.css>
     <title>主页_NJUIT</title>
-
+    <%--    <link rel="stylesheet" href=css/main.css>--%>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
 </head>
 <body>
-<div id="mainDiv">
-    <div id="header">
-        <div id="logoDiv" class="lft">
-            南京工业职业技术大学
-        </div>
-        <div id="userDiv" class="rft">
-            admin
-        </div>
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.niit.edu.cn/_upload/article/images/05/72/3d7c0f7244f591364e5f37e32223/640246aa-8a61-4495-920f-91b4163803f2.jpg"
+                 alt="" height="40" class="d-inline-block align-text-bottom">南工管理系统
+        </a>
+        <%
+            User user = (User) session.getAttribute("user");
+            if (user == null) {
+                response.sendRedirect(request.getContextPath() + "/login.jsp");
+            } else {
+        %>
+        <span class="navbar-text">
+            <%=user.getUserName()%>
+        </span>
+        <button type="button" class="btn btn-outline-primary"
+                onclick="window.location.href='/UserServlet?flag=quit' ">退出
+        </button>
+        <%}%>
     </div>
-    <div id="welcomeDiv">
-        欢迎使用南京工业职业技术大学管理系统
-    </div>
-    <div id="contentDiv">
-        <div id="content-left" class="lft">
-            <ul>
-                <li class="menu">人事管理
-                    <ul>
-                        <li class="sun-menu"><a href="https://www.baidu.com" id="deptManage" target="contentPage">部门管理</a></li>
-                        <li class="sun-menu"><a href="https://www.niit.edu.cn/4052/list.htm" id="personManage" target="contentPage">员工管理</a></li>
-                    </ul>
-                </li>
-                <li class="menu">
-                    教务管理
-                    <ul>
-                        <li class="sun-menu">班级管理</li>
-                        <li class="sun-menu">学生管理</li>
-                    </ul>
-                </li>
-                <li class="menu">
-                    系统管理
-                    <ul>
-                        <li class="sun-menu">账户维护</li>
-                        <li class="sun-menu">密码重置</li>
-                        <li class="sun-menu">系统退出</li>
-                    </ul>
-                </li>
-            </ul>
+</nav>
+<div class="container">
+    <div class="row align-items-center ">
+        <div class="col-2 align-self-start">
+            <nav id="navbar-example3"
+                 class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+                <a class="navbar-brand" href="welcome.jsp" target="contentPage">首页</a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="#">人事管理</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="users.jsp"
+                           target="contentPage">人员管理</a>
+                        <a class="nav-link ms-3 my-1" href="depts.jsp"
+                           target="contentPage">部门管理</a>
+                    </nav>
+                    <a class="nav-link" href="#">教务管理</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#">班级管理</a>
+                        <a class="nav-link ms-3 my-1" href="#">学生管理</a>
+                    </nav>
+                    <a class="nav-link" href="#">系统管理</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#">账户管理</a>
+                        <a class="nav-link ms-3 my-1" href="reset_pwd.jsp"
+                           target="contentPage">密码重置</a>
+                        <a class="nav-link ms-3 my-1"
+                           href="${pageContext.request.contextPath}/UserServlet?flag=quit">系统退出</a>
+                    </nav>
+                </nav>
+            </nav>
         </div>
-        <div id="content-right" class="rft">
-            <iframe name="contentPage" width="795px" height="497px"></iframe>
+        <div id="content-right" class="col-lg-10">
+            <iframe name="contentPage" width="800px" height="530px" src="welcome.jsp"></iframe>
         </div>
     </div>
 
-    <div id="footer">
-        &copy;版权归属南京工业职业技术大学
+    <div class="row align-items-end justify-content-center">
+        <div class="col-4">
+            &copy;版权归属南京工业职业技术大学
+        </div>
     </div>
 </div>
 </body>

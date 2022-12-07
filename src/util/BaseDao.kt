@@ -28,10 +28,8 @@ open class BaseDao {
 
         try {
             conn = DriverManager.getConnection(url, user, pwd)
-            println("获取连接成功")
         } catch (e: SQLException) {
             e.printStackTrace()
-            println("获取连接失败")
         }
         return conn
     }

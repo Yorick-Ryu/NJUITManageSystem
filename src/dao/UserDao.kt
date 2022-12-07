@@ -1,11 +1,16 @@
 package dao
 
 import entity.User
+import util.SplitPage
 
 interface UserDao {
-    public abstract fun addUser(user: User): Boolean
-    public abstract fun update(user: User): Boolean
-    public abstract fun delUser(id: Int):Boolean
-    public abstract fun queryUsers(): List<User>
-    public abstract fun queryUser(userName: String, pwd: String): User
+    fun addUser(user: User): Boolean
+    fun update(user: User): Boolean
+    fun delUser(id: Int): Boolean
+    fun queryAllUsers(): List<User>
+    fun queryUsers(sp: SplitPage): List<User>
+    fun queryUser(userName: String, pwd: String): List<User>
+    fun queryUserById(id: Int): List<User>
+    fun queryUserByLike(dept: String, name: String): List<User>
+    fun queryUserByLike(dept: String, name: String, sp: SplitPage): List<User>
 }
